@@ -147,6 +147,7 @@ fn code_is_repeated(i: u64) -> bool {
         }
 
         if !failed {
+            println!("{}", code);
             return true;
         }
     }
