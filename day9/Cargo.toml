@@ -5,3 +5,5 @@ edition = "2024"
 
 [dependencies]
 get_input = { path = "../get_input" }
+serde = { version = "1.0.228", features = [ "derive" ] }
+ciborium = "0.2.2"
