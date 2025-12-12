@@ -108,10 +108,6 @@ impl CompressedRowBounds {
                 }
             }
             all_range_bounds.insert(y, row_bounds);
-
-            if y % 1000 == 0 {
-                println!("Y {}", y);
-            }
         }
 
         Self {
@@ -223,9 +219,7 @@ fn line_between_vertical_only(
         _ => panic!(""),
     };
 
-    let out = (start..end).map(|v| Vec2::new(a.x, v)).collect();
-    println!("{:?} -> {:?}: {:?}", a, b, out);
-    out
+    (start..end).map(|v| Vec2::new(a.x, v)).collect()
 }
 
 fn four_edges(a: &Vec2, b: &Vec2) -> Vec<Vec2> {
@@ -261,7 +255,6 @@ fn create_vertical_line_bounds(points: &[Vec2]) -> HashSet<Vec2> {
                 | (LineDirection::Down, LineDirection::Right)
                 | (LineDirection::Left, LineDirection::Down)
         );
-        println!("{:?}-{:?}: inside? {}", d1, d2, exclude_endpoint);
 
         bounds.extend(line_between_vertical_only(
             &w[0],
