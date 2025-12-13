@@ -217,6 +217,7 @@ fn compute_shortest_joltage_sequence(m: &Machine) {
     
     let step_states = vec![StepStateJolt::new(m.joltages.len())];
     while let Some(b) = sorted_buttons.pop() {
+        for 
         jolt_state = apply_button_maximally(jolt_state, &m.joltages, &b);
         println!("{:?}", jolt_state);
     }
